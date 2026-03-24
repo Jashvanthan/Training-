@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Subway {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int lane = 2; // 1 = left, 2 = middle, 3 = right
+
+        while (true) {
+            System.out.println("Enter move (L=Left, R=Right, J=Jump, S=Slide, Q=Quit): ");
+            char move = sc.next().charAt(0);
+
+            switch (move) {
+                case 'L':
+                    if (lane > 1) lane--;
+                    break;
+                case 'R':
+                    if (lane < 3) lane++;
+                    break;
+                case 'J':
+                    System.out.println("Jump!");
+                    break;
+                case 'S':
+                    System.out.println("Slide!");
+                    break;
+                case 'Q':
+                    System.out.println("Game Over");
+                    return;
+                default:
+                    System.out.println("Invalid move");
+            }
+
+            System.out.println("Current Lane: " + lane);
+        }
+    }
+}
